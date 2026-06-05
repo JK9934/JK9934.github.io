@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; overflow: hidden; font-family: system-ui, sans-serif; }
+    canvas { display: block; width: 100vw; height: 100vh; }
+    
+    .panel { position: fixed; right: 18px; top: 18px; width: 260px; padding: 14px; color: #f8fafc; background: rgba(10,14,20,.78); border: 1px solid rgba(255,255,255,.18); border-radius: 8px; }
+    h1 { margin: 0 0 12px; font-size: 22px; }
+    label { display: grid; gap: 5px; margin: 9px 0; font-size: 13px; }
+    p { min-height: 38px; margin: 10px 0 0; line-height: 1.45; color: #dbeafe; }
+    
+    select, input, button { width: 100%; height: 34px; padding: 0 9px; border: 1px solid #4b5563; border-radius: 6px; background: #111827; color: #f8fafc; }
+    button { margin-top: 8px; background: #2563eb; border: 0; font-weight: 700; cursor: pointer; }
+    button:disabled { opacity: .55; cursor: wait; }
+  </style>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.159.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.159.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="project.js"></script>
+</head>
+<body>
+  <div class="panel">
+    <h1>전투 시뮬레이션</h1>
+    <label>1팀 캐릭터 <select id="a-type"></select></label>
+    <label>1팀 인원 <input id="a-count" type="number" min="1" value="1"></label>
+    <label>2팀 캐릭터 <select id="b-type"></select></label>
+    <label>2팀 인원 <input id="b-count" type="number" min="1" value="1"></label>
+    <button id="start" disabled>시작</button>
+    <p id="status">GLB 파일을 불러오는 중...</p>
+    <p id="hint" style="min-height:auto;margin-top:4px;font-size:12px;color:#94a3b8;">캐릭터를 클릭하면 카메라가 따라갑니다.</p>
+  </div>
+</body>
+</html>
